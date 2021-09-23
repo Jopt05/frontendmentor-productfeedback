@@ -1,24 +1,53 @@
-import logo from './logo.svg';
 import './App.css';
+import useComponentVisible from './hooks/useComponentVisible';
+import useFetch from './hooks/useFetch';
+import useFilter from './hooks/useFilter';
+import useMenu from './hooks/useMenu';
+import useOrder from './hooks/useOrder';
+import HomeScreen from './hoc/HomeScreen';
+import { AppContext } from './hoc/Context';
+import useStatus from './hooks/useStatus';
 
 function App() {
+
+  const [ ToggleMenu, handleToggleMenu ] = useMenu();
+
+  const [ ref, isComponentVisible, setIsComponentVisible ] = useComponentVisible(false);
+
+  const [ refOrder, isComponentVisibleOrder, setIsComponentVisibleOrder ] = useComponentVisible(false);
+
+  const [ Data, setData ] = useFetch("https://productfeedback-backend.herokuapp.com/api/feedback");
+
+  const [ Order, handleOrderChange ] = useOrder( setIsComponentVisibleOrder, Data, setData );
+
+  const [ Filter, handleChangeFilter, ContentExists ] = useFilter(Data);
+
+  const Statuses = useStatus( Data );
+
+  const context = {
+    ToggleMenu,
+    handleToggleMenu,
+    ref,
+    isComponentVisible,
+    setIsComponentVisible,
+    Data,
+    Order,
+    handleOrderChange,
+    refOrder,
+    isComponentVisibleOrder, 
+    setIsComponentVisibleOrder,
+    Filter,
+    handleChangeFilter,
+    Statuses,
+    ContentExists
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AppContext.Provider value={ context }>
+      <div className="App">
+        <HomeScreen />
+      </div>
+    </AppContext.Provider>
   );
 }
 

@@ -7,11 +7,10 @@ const Content = () => {
 
   const context = useContext(AppContext);
 
-  const { isComponentVisible, Data, ContentExists } = context;
+  const { Data, ContentExists } = context;
 
     return (
         <div className={ `Content ${ ContentExists ? '' : 'Hidden' }` }>
-          <div className={ `Curtain ${ isComponentVisible ? 'Active' : 'Inactive' }` }></div>
           <ResponsiveMenu />
           {
             Data?.data?.feedbacks.map( (el) =>

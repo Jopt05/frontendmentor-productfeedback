@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "https://jopt05.github.io/frontendmentor-productfeedback/static/css/main.013e3b55.chunk.css",
-    "main.js": "https://jopt05.github.io/frontendmentor-productfeedback/static/js/main.7e2a245d.chunk.js",
-    "main.js.map": "https://jopt05.github.io/frontendmentor-productfeedback/static/js/main.7e2a245d.chunk.js.map",
+    "main.js": "https://jopt05.github.io/frontendmentor-productfeedback/static/js/main.0817a64b.chunk.js",
+    "main.js.map": "https://jopt05.github.io/frontendmentor-productfeedback/static/js/main.0817a64b.chunk.js.map",
     "runtime-main.js": "https://jopt05.github.io/frontendmentor-productfeedback/static/js/runtime-main.98654eb9.js",
     "runtime-main.js.map": "https://jopt05.github.io/frontendmentor-productfeedback/static/js/runtime-main.98654eb9.js.map",
     "static/js/2.d10025de.chunk.js": "https://jopt05.github.io/frontendmentor-productfeedback/static/js/2.d10025de.chunk.js",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.98654eb9.js",
     "static/js/2.d10025de.chunk.js",
     "static/css/main.013e3b55.chunk.css",
-    "static/js/main.7e2a245d.chunk.js"
+    "static/js/main.0817a64b.chunk.js"
   ]
 }

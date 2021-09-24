@@ -11,7 +11,6 @@ const Content = () => {
 
     return (
         <div className={ `Content ${ ContentExists ? '' : 'Hidden' }` }>
-          <ResponsiveMenu />
           {
             Data?.data?.feedbacks.map( (el) =>
             <ContentElement 

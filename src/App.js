@@ -20,7 +20,7 @@ function App() {
 
   const [ Order, handleOrderChange ] = useOrder( setIsComponentVisibleOrder, Data, setData );
 
-  const [ Filter, handleChangeFilter, ContentExists ] = useFilter(Data);
+  const [ Filter, handleChangeFilter, ContentExists ] = useFilter(Data, setIsComponentVisible);
 
   const Statuses = useStatus( Data );
 

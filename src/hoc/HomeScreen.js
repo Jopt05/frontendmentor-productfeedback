@@ -5,6 +5,7 @@ import Bar from '../components/homescreen/Bar'
 import Content from '../components/homescreen/Content'
 import NoContent from '../components/homescreen/NoContent'
 import { AppContext } from './Context'
+import ResponsiveMenu from '../components/homescreen/ResponsiveMenu'
 
 const HomeScreen = () => {
 
@@ -14,6 +15,7 @@ const HomeScreen = () => {
      <div className="Container">
         <div className={ `Curtain ${ isComponentVisible ? 'Active' : 'Inactive' }` }></div>
         <ResponsiveHeader />
+        <ResponsiveMenu />
         <Header />
         <Bar />
         <Content />

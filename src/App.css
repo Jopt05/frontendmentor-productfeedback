@@ -400,7 +400,7 @@
 
 @media only screen and (max-width: 499px) {
   .App {
-    height: max-content;
+    height: 100%;
     padding-bottom: 20px;
   }
   
@@ -522,7 +522,7 @@
     flex-direction: column;
     gap: 20px;
     position: absolute;
-    top: -25px;
+    top: 155px;
     right: -100%;
     width: 70%;
     height: 100vh;
@@ -580,6 +580,15 @@
   color: white;
 }
 
+.isVoted {
+  background-color: #4661e6;
+  color: #fff;
+}
+
+.isVoted i {
+  animation: voted .2s ease-in-out forwards;
+}
+
 @keyframes fadeIn {
   from {
     visibility: hidden;
@@ -624,5 +633,19 @@
     visibility: visible;
     opacity: 1;
     transform: translateY(0px);
+  }
+}
+
+@keyframes voted {
+  from {
+    transform: translateY(0%);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+
+  to {
+    transform: translateY(0%);
   }
 }

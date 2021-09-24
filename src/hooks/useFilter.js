@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
-const useFilter = (Data) => {
+const useFilter = (Data, setIsComponentVisible) => {
 
     const [Filter, setFilter] = useState("All");
 
@@ -11,6 +11,8 @@ const useFilter = (Data) => {
     }
 
     useEffect(() => {
+        
+        setIsComponentVisible(false);
 
         if( Filter === "All" ) return;
 

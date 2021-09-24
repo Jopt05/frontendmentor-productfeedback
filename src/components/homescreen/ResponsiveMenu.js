@@ -1,12 +1,13 @@
 import React, { useContext } from 'react'
 import { AppContext } from '../../hoc/Context';
 import HeaderContainerButton from './HeaderContainerButton';
+import HeaderStatus from './HeaderStatus';
 
 const ResponsiveMenu = () => {
 
     const context = useContext(AppContext);
 
-    const { ref, isComponentVisible } = context;
+    const { ref, isComponentVisible, Statuses } = context;
 
     return (
         <div ref={ref} className={`MenuRes ${ isComponentVisible ? 'Active' : '' }`}>
@@ -28,33 +29,21 @@ const ResponsiveMenu = () => {
                     </a>
                 </div>
                 <div className="Header__Container-Statuses">
-                    <div className="Header__Container-Statuses-Div">
-                        <span className="Header__Container-Statuses-Div-Pin"></span>
-                        <p className="Header__Container-Statuses-Div-Text">
-                            Planned
-                        </p>
-                        <p className="Header__Container-Statuses-Div-Number">
-                            2
-                        </p>
-                    </div>
-                    <div className="Header__Container-Statuses-Div">
-                    <span className="Header__Container-Statuses-Div-Pin"></span>
-                    <p className="Header__Container-Statuses-Div-Text">
-                        In-Progress
-                    </p>
-                    <p className="Header__Container-Statuses-Div-Number">
-                        3
-                    </p>
-                    </div>
-                    <div className="Header__Container-Statuses-Div">
-                    <span className="Header__Container-Statuses-Div-Pin"></span>
-                    <p className="Header__Container-Statuses-Div-Text">
-                        Live
-                    </p>
-                    <p className="Header__Container-Statuses-Div-Number">
-                        1
-                    </p>
-                    </div>
+                    {
+                    Statuses?.planned
+                        ? <HeaderStatus title={"Planned"} amount={Statuses?.planned?.length} />
+                        : ''
+                    }
+                    {
+                    Statuses?.progress
+                        ? <HeaderStatus title={"In-Progress"} amount={Statuses?.progress?.length} />
+                        : ''
+                    }
+                    {
+                    Statuses?.live
+                        ? <HeaderStatus title={"Live"} amount={Statuses?.live?.length} />
+                        : ''
+                    }
                 </div>
             </div>
         </div>

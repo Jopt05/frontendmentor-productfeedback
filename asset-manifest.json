@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "https://jopt05.github.io/frontendmentor-productfeedback/static/css/main.0d9ac207.chunk.css",
-    "main.js": "https://jopt05.github.io/frontendmentor-productfeedback/static/js/main.b1b5a5a5.chunk.js",
-    "main.js.map": "https://jopt05.github.io/frontendmentor-productfeedback/static/js/main.b1b5a5a5.chunk.js.map",
+    "main.css": "https://jopt05.github.io/frontendmentor-productfeedback/static/css/main.013e3b55.chunk.css",
+    "main.js": "https://jopt05.github.io/frontendmentor-productfeedback/static/js/main.7e2a245d.chunk.js",
+    "main.js.map": "https://jopt05.github.io/frontendmentor-productfeedback/static/js/main.7e2a245d.chunk.js.map",
     "runtime-main.js": "https://jopt05.github.io/frontendmentor-productfeedback/static/js/runtime-main.98654eb9.js",
     "runtime-main.js.map": "https://jopt05.github.io/frontendmentor-productfeedback/static/js/runtime-main.98654eb9.js.map",
     "static/js/2.d10025de.chunk.js": "https://jopt05.github.io/frontendmentor-productfeedback/static/js/2.d10025de.chunk.js",
     "static/js/2.d10025de.chunk.js.map": "https://jopt05.github.io/frontendmentor-productfeedback/static/js/2.d10025de.chunk.js.map",
     "index.html": "https://jopt05.github.io/frontendmentor-productfeedback/index.html",
-    "static/css/main.0d9ac207.chunk.css.map": "https://jopt05.github.io/frontendmentor-productfeedback/static/css/main.0d9ac207.chunk.css.map",
+    "static/css/main.013e3b55.chunk.css.map": "https://jopt05.github.io/frontendmentor-productfeedback/static/css/main.013e3b55.chunk.css.map",
     "static/js/2.d10025de.chunk.js.LICENSE.txt": "https://jopt05.github.io/frontendmentor-productfeedback/static/js/2.d10025de.chunk.js.LICENSE.txt",
     "static/media/NoContent.3f184500.svg": "https://jopt05.github.io/frontendmentor-productfeedback/static/media/NoContent.3f184500.svg",
     "static/media/App.css": "https://jopt05.github.io/frontendmentor-productfeedback/static/media/header-background.d5b73851.png"
@@ -16,7 +16,7 @@
   "entrypoints": [
     "static/js/runtime-main.98654eb9.js",
     "static/js/2.d10025de.chunk.js",
-    "static/css/main.0d9ac207.chunk.css",
-    "static/js/main.b1b5a5a5.chunk.js"
+    "static/css/main.013e3b55.chunk.css",
+    "static/js/main.7e2a245d.chunk.js"
   ]
 }

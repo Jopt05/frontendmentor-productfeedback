@@ -5,7 +5,7 @@ const ContentElement = (props) => {
 
     const { Filter } = useContext(AppContext);
 
-    const [isVoted, setisVoted] = useState(false);
+    const [isVoted, setisVoted] = useState(null);
 
     const [ElementInfo, setElementInfo] = useState({
         votes: props?.votes  
@@ -17,38 +17,25 @@ const ContentElement = (props) => {
 
         if( isVoted ) {
             setisVoted(false);
-            setElementInfo({ votes: ElementInfo.votes - 1 })
+            setElementInfo({
+                votes: ElementInfo.votes - 1
+            })
         } else {
             setisVoted(true);
-            setElementInfo({ votes: ElementInfo.votes + 1 })
+            setElementInfo({
+                votes: ElementInfo.votes + 1
+            })
         }
+
+        
 
     }
 
     useEffect(() => {
 
-        if( isVoted ) {
+        if( isVoted === null ) return;
 
-            let votedItems = JSON.parse(localStorage.getItem("votedItems"));
-            if( votedItems === null ) {
-                localStorage.setItem("votedItems", JSON.stringify([props.id]))
-                votedItems = localStorage.getItem("votedItems");
-            } else {
-                votedItems.push(props.id);
-                localStorage.setItem("votedItems", JSON.stringify(votedItems));
-            }
-
-        } else {
-
-            let unvotedItems = JSON.parse(localStorage.getItem("votedItems"));
-            unvotedItems = unvotedItems.filter( el => el !== props.id );
-            localStorage.setItem("votedItems", JSON.stringify(unvotedItems));
-
-        }
-
-    }, [isVoted])
-
-    useEffect(() => {
+        let votedItems = JSON.parse(localStorage.getItem("votedItems"));
         
         fetch(`https://productfeedback-backend.herokuapp.com/api/feedback/${props.id}`, {
             body: JSON.stringify({
@@ -62,12 +49,28 @@ const ContentElement = (props) => {
         .then( resp => resp.json() )
         .then( data => console.log(data) )
         .catch( err => console.log(err) )
+
+
+        if( !votedItems ) {
+            localStorage.setItem("votedItems", JSON.stringify([]));
+            votedItems = JSON.parse(localStorage.getItem("votedItems"));
+        };
+
+        if( isVoted ){
+            votedItems.push(props.id);
+            localStorage.setItem("votedItems", JSON.stringify(votedItems));
+        } else {
+            votedItems = JSON.parse(localStorage.getItem("votedItems"));
+            votedItems = votedItems.filter( el => el !== props.id );
+            localStorage.setItem("votedItems", JSON.stringify(votedItems));
+        }
         
     }, [ElementInfo])
 
     useEffect(() => {
         
         let votedItems = JSON.parse(localStorage.getItem("votedItems"));
+        if( !votedItems ) return;
         if( votedItems.includes(props.id) ) {
             setisVoted(true);
         }

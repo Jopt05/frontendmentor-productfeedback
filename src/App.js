@@ -16,7 +16,7 @@ function App() {
 
   const [ refOrder, isComponentVisibleOrder, setIsComponentVisibleOrder ] = useComponentVisible(false);
 
-  const [ Data, setData ] = useFetch("https://productfeedback-backend.herokuapp.com/api/feedback");
+  const [ Data, setData ] = useFetch(`${process.env.REACT_APP_API_URL}/api/feedback`);
 
   const [ Order, handleOrderChange ] = useOrder( setIsComponentVisibleOrder, Data, setData );
 

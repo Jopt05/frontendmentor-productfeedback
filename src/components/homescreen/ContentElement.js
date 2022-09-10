@@ -37,7 +37,7 @@ const ContentElement = (props) => {
 
         let votedItems = JSON.parse(localStorage.getItem("votedItems"));
         
-        fetch(`https://productfeedback-backend.herokuapp.com/api/feedback/${props.id}`, {
+        fetch(`${process.env.REACT_APP_API_URL}/api/feedback/${props.id}`, {
             body: JSON.stringify({
                 votes: ElementInfo.votes
             }),

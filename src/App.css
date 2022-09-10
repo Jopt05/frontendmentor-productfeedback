@@ -1,5 +1,4 @@
 .App {
-  background-color: #f2f4ff;
   min-height: 100vh;
   max-height: max-content;
   width: 100%;
@@ -400,7 +399,7 @@
 
 @media only screen and (max-width: 499px) {
   .App {
-    height: 100%;
+    height: auto;
     padding-bottom: 20px;
   }
   

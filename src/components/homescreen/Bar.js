@@ -4,14 +4,16 @@ import MenuRow from './MenuRow';
 
 const Bar = () => {
 
-    const { Order, refOrder, isComponentVisibleOrder, setIsComponentVisibleOrder } = useContext(AppContext);
+    const { Data, Order, refOrder, isComponentVisibleOrder, setIsComponentVisibleOrder } = useContext(AppContext);
+
+    const { data } = Data;
 
     return (
         <div className="Bar">
             <div className="Bar__Container">
               <i className='bx bxs-bulb'></i>
               <p className="Bar__Container-Suggestions">
-                7 Suggestions
+                { data?.feedbacks?.length } Suggestions
               </p>
             </div>
             <div ref={refOrder} className="Bar__Container">

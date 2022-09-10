@@ -79,34 +79,34 @@ const ContentElement = (props) => {
     
     return (
         <>
-            <a ref={ ref } id={ props?.id } className={ `Content__Element${ props?.tags.includes(Filter) || Filter==="All" ? '' : ' Hidden' }` }>
+            <a ref={ ref } id={ props?.id } className={ `Content__Element${ props?.tags.includes(Filter) || Filter=="All" ? '' : ' Hidden' }` }>
                 <div className={ `Content__Element-Votes ${ isVoted ? 'isVoted' : '' }` } onClick={ handleUpvote }>
-                <i className='bx bx-chevron-up' ></i>
-                <p className="Content__Element-Votes-Number">
-                    { ElementInfo.votes }
-                </p>
+                    <i className='bx bx-chevron-up' ></i>
+                    <p className="Content__Element-Votes-Number">
+                        { ElementInfo.votes }
+                    </p>
                 </div>
                 <div className="Content__Element-Content">
-                <p className="Content__Element-Content-Title">
-                    { props?.title }
-                </p>
-                <p className="Content__Element-Content-Text">
-                    { props?.description }
-                </p>
-                <div className="Content__Element-Content-Categories">
-                    {
-                        props?.tags.map( (el) => 
-                        <p className="Header__Container-Button">
-                        { el }
-                        </p> )
-                    }
-                </div>
+                    <p className="Content__Element-Content-Title">
+                        { props?.title }
+                    </p>
+                    <p className="Content__Element-Content-Text">
+                        { props?.description }
+                    </p>
+                    <div className="Content__Element-Content-Categories">
+                        {
+                            props?.tags.map( (el) => 
+                            <p className="Header__Container-Button">
+                            { el }
+                            </p> )
+                        }
+                    </div>
                 </div>
                 <div className="Content__Element-Comments">
-                <i className='bx bxs-message-rounded'></i>
-                <p className="Content__Element-Comments-Number">
-                    { props?.comments.length }
-                </p>
+                    <i className='bx bxs-message-rounded'></i>
+                    <p className="Content__Element-Comments-Number">
+                        { props?.comments.length }
+                    </p>
                 </div>
             </a>
         </>

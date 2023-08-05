@@ -52,8 +52,8 @@ const ContentElement = (props) => {
 
 
         if( !votedItems ) {
+            votedItems = [];
             localStorage.setItem("votedItems", JSON.stringify([]));
-            votedItems = JSON.parse(localStorage.getItem("votedItems"));
         };
 
         if( isVoted ){

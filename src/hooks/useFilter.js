@@ -14,7 +14,10 @@ const useFilter = (Data, setIsComponentVisible) => {
         
         setIsComponentVisible(false);
 
-        if( Filter == "All" ) return;
+        if( Filter == "All" ) {
+            setContentExists(true);
+            return;
+        };
 
         let feedbacksWithTag = Data?.data?.feedbacks.filter( el => el.tags.includes(Filter) );
 

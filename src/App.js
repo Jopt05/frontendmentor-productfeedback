@@ -7,6 +7,13 @@ import useOrder from './hooks/useOrder';
 import HomeScreen from './hoc/HomeScreen';
 import { AppContext } from './hoc/Context';
 import useStatus from './hooks/useStatus';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route
+} from 'react-router-dom';
+import LoginScreen from './hoc/LoginScreen';
+
 
 function App() {
 
@@ -45,7 +52,12 @@ function App() {
   return (
     <AppContext.Provider value={ context }>
       <div className="App">
-        <HomeScreen />
+        <Router>
+          <Routes>
+            <Route  path='login' element={ <LoginScreen /> }/>
+            <Route path='/' element={ <HomeScreen /> } />
+          </Routes>
+        </Router>
       </div>
     </AppContext.Provider>
   );

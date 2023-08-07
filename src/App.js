@@ -1,12 +1,7 @@
 import './App.css';
-import useComponentVisible from './hooks/useComponentVisible';
-import useFetch from './hooks/useFetch';
-import useFilter from './hooks/useFilter';
-import useMenu from './hooks/useMenu';
-import useOrder from './hooks/useOrder';
-import HomeScreen from './hoc/HomeScreen';
 import { AppContext } from './hoc/Context';
-import useStatus from './hooks/useStatus';
+import { HomeScreenRouter } from './routers/HomeScreenRouter';
+import { PrivateRoute } from './routers/PrivateRouter';
 import {
   BrowserRouter as Router,
   Routes,
@@ -17,45 +12,17 @@ import LoginScreen from './hoc/LoginScreen';
 
 function App() {
 
-  const [ ToggleMenu, handleToggleMenu ] = useMenu();
-
-  const [ ref, isComponentVisible, setIsComponentVisible ] = useComponentVisible(false);
-
-  const [ refOrder, isComponentVisibleOrder, setIsComponentVisibleOrder ] = useComponentVisible(false);
-
-  const [ Data, setData ] = useFetch(`${process.env.REACT_APP_API_URL}/api/feedback`);
-
-  const [ Order, handleOrderChange ] = useOrder( setIsComponentVisibleOrder, Data, setData );
-
-  const [ Filter, handleChangeFilter, ContentExists ] = useFilter(Data, setIsComponentVisible);
-
-  const Statuses = useStatus( Data );
-
-  const context = {
-    ToggleMenu,
-    handleToggleMenu,
-    ref,
-    isComponentVisible,
-    setIsComponentVisible,
-    Data,
-    Order,
-    handleOrderChange,
-    refOrder,
-    isComponentVisibleOrder, 
-    setIsComponentVisibleOrder,
-    Filter,
-    handleChangeFilter,
-    Statuses,
-    ContentExists
-  }
-
   return (
-    <AppContext.Provider value={ context }>
+    <AppContext.Provider>
       <div className="App">
         <Router>
           <Routes>
-            <Route  path='login' element={ <LoginScreen /> }/>
-            <Route path='/' element={ <HomeScreen /> } />
+            <Route path='login/*' element={ <LoginScreen /> }/>
+            <Route path='/*' element={
+              <PrivateRoute child={
+                <HomeScreenRouter />}
+              />
+            }/>
           </Routes>
         </Router>
       </div>
